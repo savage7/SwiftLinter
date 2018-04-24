@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Path to swiftlint
-SWIFT_LINT="${PODS_ROOT}/SwiftLint/swiftlint"
+SWIFT_LINT="${PODS_ROOT}/SwiftLint/swiftlint --config Resources/Tools/swiftlint.yml"
 GIT_ROOT=$(git rev-parse --show-toplevel)
 
 #if $SWIFT_LINT >/dev/null 2>&1; then
