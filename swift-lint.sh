@@ -1,7 +1,7 @@
 #!/bin/bash
-
 #Path to swiftlint
-SWIFT_LINT="${PODS_ROOT}/SwiftLint/swiftlint --config Resources/Tools/swiftlint.yml"
+
+SWIFT_LINT="${PODS_ROOT}/SwiftLint/swiftlint"
 GIT_ROOT=$(git rev-parse --show-toplevel)
 
 #if $SWIFT_LINT >/dev/null 2>&1; then
@@ -26,9 +26,8 @@ if [[ -e "${SWIFT_LINT}" ]]; then
 ##### Lint files or exit if no files found for lintint #####
     if [ "$count" -ne 0 ]; then
         echo "Found lintable files! Linting and fixing the fixible parts..."
-
         #$SWIFT_LINT autocorrect --use-script-input-files #autocorrects before commit.
-        $SWIFT_LINT lint --use-script-input-files #lint before commit.
+        $SWIFT_LINT --use-script-input-files --config Resources/Tools/swiftlint.yml #lint before commit.
     else
         echo "No files to lint!"
         exit 0
